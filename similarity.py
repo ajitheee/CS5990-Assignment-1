@@ -1,6 +1,6 @@
 # -------------------------------------------------------------------------
-# AUTHOR: your name
-# FILENAME: title of the source file
+# AUTHOR: Ajith Elumalai
+# FILENAME: Similarity
 # SPECIFICATION: description of the program
 # FOR: CS 5990 (Advanced Data Mining) - Assignment #1
 # TIME SPENT: how long it took you to complete the assignment
