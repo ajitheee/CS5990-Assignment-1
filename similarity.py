@@ -17,7 +17,6 @@ def tokenize(text):
     """Tokenize text by splitting on spaces."""
     return text.lower().split()
 
-# Step 1: Read the dataset
 documents = []
 doc_ids = []
 
@@ -39,6 +38,11 @@ unique_words = set(word for doc in documents for word in doc)  # All unique word
 unique_words = sorted(unique_words)  # Sort for consistency
 word_index = {word: i for i, word in enumerate(unique_words)}  # Word to index mapping
 
+#Building the document-term matrix by using binary encoding.
+#You must identify each distinct word in the collection without applying any transformations, using
+# the spaces as your character delimiter.
+#--> add your Python code here
+
 doc_term_matrix = []
 for doc in documents:
     vector = [0] * len(unique_words)
@@ -46,7 +50,9 @@ for doc in documents:
         vector[word_index[word]] = 1  # Binary encoding
     doc_term_matrix.append(vector)
 
-# Step 3: Compute Cosine Similarity
+# Compare the pairwise cosine similarities and store the highest one
+# Use cosine_similarity([X], [Y]) to calculate the similarities between 2 vectors
+# --> Add your Python code here
 def sqrt(value):
     """Manual square root calculation using the Newton-Raphson method."""
     x = value
@@ -62,7 +68,9 @@ def cosine_similarity(vec1, vec2):
     norm2 = sqrt(sum(v ** 2 for v in vec2))
     return dot_product / (norm1 * norm2) if norm1 and norm2 else 0
 
-# Step 4: Find the most similar documents
+# Print the highest cosine similarity following the information below
+# The most similar documents are document 10 and document 100 with cosine similarity = x
+# --> Add your Python code here
 max_similarity = 0
 most_similar_docs = (None, None)
 
@@ -75,18 +83,3 @@ for i in range(len(doc_term_matrix)):
 
 # Step 5: Print the result
 print(f"The most similar documents are document {most_similar_docs[0]} and document {most_similar_docs[1]} with cosine similarity = {max_similarity:.4f}")
-
-#Building the document-term matrix by using binary encoding.
-#You must identify each distinct word in the collection without applying any transformations, using
-# the spaces as your character delimiter.
-#--> add your Python code here
-docTermMatrix = []
-
-# Compare the pairwise cosine similarities and store the highest one
-# Use cosine_similarity([X], [Y]) to calculate the similarities between 2 vectors
-# --> Add your Python code here
-
-
-# Print the highest cosine similarity following the information below
-# The most similar documents are document 10 and document 100 with cosine similarity = x
-# --> Add your Python code here
